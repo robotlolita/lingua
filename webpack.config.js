@@ -1,6 +1,6 @@
 module.exports = {
   mode: "none",
-  entry: "./linguist.js",
+  entry: "./lingua.js",
   output: {
     filename: "app.js",
     libraryTarget: "commonjs"
