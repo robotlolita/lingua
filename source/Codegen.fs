@@ -1,7 +1,7 @@
-module Linguist.Codegen
+module Lingua.Codegen
 
 open Fable.Core
-open Linguist.AST
+open Lingua.AST
 
 let enumerate xs =
   Seq.zip {1..(Seq.length xs)} xs

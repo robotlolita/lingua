@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Compile Include="source/Ast.fs" />
-    <Compile Include="source/generated/Linguist.fs" />
+    <Compile Include="source/generated/Lingua.fs" />
     <Compile Include="source/Parser.fs" />
     <Compile Include="source/Codegen.fs" />
     <Compile Include="source/App.fs" />

@@ -2,8 +2,8 @@
   "name": "@origamitower/lingua",
   "version": "0.1.0",
   "scripts": {
-    "build": "dotnet fable Linguist.fsproj --outDir build --sourceMaps && webpack",
-    "build-grammar": "fohm compile grammar/grammar.ohm --name Linguist --outDir source/generated"
+    "build": "dotnet fable lingua.fsproj --outDir build --sourceMaps && webpack",
+    "build-grammar": "fohm compile grammar/grammar.ohm --name Lingua --outDir source/generated"
   },
   "dependencies": {
     "@origamitower/fohm": "^1.1.0",

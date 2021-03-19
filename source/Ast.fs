@@ -1,4 +1,4 @@
-module Linguist.AST
+module Lingua.AST
 
 type Grammar = {
   Name: string

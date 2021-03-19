@@ -1,5 +1,5 @@
 // This code was automatically generated from a grammar definition by Fohm.
-module Fohm.Generated.Linguist
+module Fohm.Generated.Lingua
 
 type Offset = 
   { line: int; column: int }
@@ -24,7 +24,7 @@ type ParseOptions =
 
 
 open Fable.Core
-open Linguist.AST
+open Lingua.AST
 
 [<Emit("JSON.parse($0)")>]
 let parseJson s : string = jsNative

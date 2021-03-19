@@ -1,6 +1,6 @@
 %[
 open Fable.Core
-open Linguist.AST
+open Lingua.AST
 
 [<Emit("JSON.parse($0)")>]
 let parseJson s : string = jsNative
@@ -10,7 +10,7 @@ let parseString (s:string) =
 
 ]%
 
-Linguist : Grammar {
+Lingua : Grammar {
   TypeDecl =
     | type_ n:Name f:Formals "(" p:ListOf<TypeField, ","> ")"
       %[ TRecord(n, f, p) ]%

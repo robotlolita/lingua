@@ -1,4 +1,4 @@
-module Linguist.App
+module Lingua.App
 
-let parse = Linguist.Parser.parse
-let generate g = Linguist.Codegen.generate g
+let parse = Lingua.Parser.parse
+let generate g = Lingua.Codegen.generate g
