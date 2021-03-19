@@ -1,0 +1,8 @@
+.fable
+.config
+.ionide
+bin
+dist
+build
+obj
+node_modules
