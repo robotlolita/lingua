@@ -1,8 +1,8 @@
 {
   "name": "@origamitower/lingua",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bin": {
-    "lingua": "dist/app.js"
+    "lingua": "lingua-app.js"
   },
   "scripts": {
     "build": "dotnet fable lingua.fsproj --outDir build --sourceMaps && webpack",
