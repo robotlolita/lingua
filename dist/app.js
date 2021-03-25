@@ -47,13 +47,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "parse": () => (/* binding */ parse)
 /* harmony export */ });
-/* harmony import */ var _generated_Linguist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _generated_Lingua_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 
 
 
 function parse(source, filename) {
-    const matchValue = (0,_generated_Linguist_js__WEBPACK_IMPORTED_MODULE_0__.parse)("Grammar", source, new _generated_Linguist_js__WEBPACK_IMPORTED_MODULE_0__.ParseOptions(filename));
+    const matchValue = (0,_generated_Lingua_js__WEBPACK_IMPORTED_MODULE_0__.parse)("Grammar", source, new _generated_Lingua_js__WEBPACK_IMPORTED_MODULE_0__.ParseOptions(filename));
     if (matchValue.tag === 1) {
         return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toFail)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.printf)("%s"))(matchValue.fields[0]);
     }
@@ -108,7 +108,7 @@ class Offset extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODUL
 }
 
 function Offset$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Linguist.Offset", [], Offset, () => [["line", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type], ["column", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Lingua.Offset", [], Offset, () => [["line", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type], ["column", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type]]);
 }
 
 class OffsetRecord$1 extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Record {
@@ -120,7 +120,7 @@ class OffsetRecord$1 extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORT
 }
 
 function OffsetRecord$1$reflection(gen0) {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Linguist.OffsetRecord`1", [gen0], OffsetRecord$1, () => [["start", gen0], ["end", gen0]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Lingua.OffsetRecord`1", [gen0], OffsetRecord$1, () => [["start", gen0], ["end", gen0]]);
 }
 
 class Position extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Record {
@@ -135,7 +135,7 @@ class Position extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MOD
 }
 
 function Position$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Linguist.Position", [], Position, () => [["offset", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.lambda_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.unit_type, OffsetRecord$1$reflection(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type))], ["position", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.lambda_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.unit_type, OffsetRecord$1$reflection(Offset$reflection()))], ["sourceSlice", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["sourceString", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["filename", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Lingua.Position", [], Position, () => [["offset", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.lambda_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.unit_type, OffsetRecord$1$reflection(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.int32_type))], ["position", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.lambda_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.unit_type, OffsetRecord$1$reflection(Offset$reflection()))], ["sourceSlice", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["sourceString", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["filename", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)]]);
 }
 
 class Meta extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Record {
@@ -147,7 +147,7 @@ class Meta extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_
 }
 
 function Meta$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Linguist.Meta", [], Meta, () => [["source", Position$reflection()], ["children", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Position$reflection())]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Lingua.Meta", [], Meta, () => [["source", Position$reflection()], ["children", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Position$reflection())]]);
 }
 
 class ParseOptions extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Record {
@@ -158,7 +158,7 @@ class ParseOptions extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED
 }
 
 function ParseOptions$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Linguist.ParseOptions", [], ParseOptions, () => [["filename", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Fohm.Generated.Lingua.ParseOptions", [], ParseOptions, () => [["filename", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)]]);
 }
 
 function parseString(s) {
@@ -228,7 +228,7 @@ function parse(rule, source, options) {
     }
 }
 
-//# sourceMappingURL=Linguist.js.map
+//# sourceMappingURL=Lingua.js.map
 
 
 /***/ }),
@@ -4575,7 +4575,7 @@ class Grammar extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODU
 }
 
 function Grammar$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Linguist.AST.Grammar", [], Grammar, () => [["Name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Top", TypeApp$reflection()], ["Rules", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Rule$reflection())], ["Types", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Type$reflection())]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Lingua.AST.Grammar", [], Grammar, () => [["Name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Top", TypeApp$reflection()], ["Rules", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Rule$reflection())], ["Types", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Type$reflection())]]);
 }
 
 class Rule extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4590,7 +4590,7 @@ class Rule extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_
 }
 
 function Rule$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Rule", [], Rule, () => [[["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["desc", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item5", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]], [["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item4", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]], [["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item4", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Rule", [], Rule, () => [[["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["desc", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item5", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]], [["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item4", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]], [["isToken", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.bool_type], ["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["Item4", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(RuleBody$reflection())]]]);
 }
 
 class RuleBody extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Record {
@@ -4602,7 +4602,7 @@ class RuleBody extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MOD
 }
 
 function RuleBody$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Linguist.AST.RuleBody", [], RuleBody, () => [["Terms", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Binder$reflection())], ["Expr", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(Expr$reflection())]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.record_type)("Lingua.AST.RuleBody", [], RuleBody, () => [["Terms", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Binder$reflection())], ["Expr", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.option_type)(Expr$reflection())]]);
 }
 
 class Binder extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4617,7 +4617,7 @@ class Binder extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODUL
 }
 
 function Binder$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Binder", [], Binder, () => [[["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Item2", Term$reflection()]], [["Item", Term$reflection()]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Binder", [], Binder, () => [[["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Item2", Term$reflection()]], [["Item", Term$reflection()]]]);
 }
 
 class Term extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4632,7 +4632,7 @@ class Term extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_
 }
 
 function Term$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Term", [], Term, () => [[["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Item2", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", Term$reflection()]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Term", [], Term, () => [[["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item", Term$reflection()]], [["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Term$reflection())]], [["Item1", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["Item2", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", Term$reflection()]]]);
 }
 
 class Expr extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4647,7 +4647,7 @@ class Expr extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_
 }
 
 function Expr$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Expr", [], Expr, () => [[], [["ctor", Expr$reflection()], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())]], [["Item1", Expr$reflection()], ["field", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())]], [["Item1", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())], ["Item2", Expr$reflection()]], []]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Expr", [], Expr, () => [[], [["ctor", Expr$reflection()], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())]], [["Item1", Expr$reflection()], ["field", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())]], [["Item1", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Expr$reflection())], ["Item2", Expr$reflection()]], []]);
 }
 
 class Type extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4662,7 +4662,7 @@ class Type extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_
 }
 
 function Type$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Type", [], Type, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["fields", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Field$reflection())]], [["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["variants", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Variant$reflection())]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Type", [], Type, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["fields", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Field$reflection())]], [["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["formals", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type)], ["variants", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Variant$reflection())]]]);
 }
 
 class Variant extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4677,7 +4677,7 @@ class Variant extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODU
 }
 
 function Variant$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Variant", [], Variant, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["fields", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Field$reflection())]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Variant", [], Variant, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["fields", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(Field$reflection())]]]);
 }
 
 class Field extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4692,7 +4692,7 @@ class Field extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE
 }
 
 function Field$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.Field", [], Field, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["typ", TypeApp$reflection()]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.Field", [], Field, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type], ["typ", TypeApp$reflection()]]]);
 }
 
 class TypeApp extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_0__.Union {
@@ -4707,7 +4707,7 @@ class TypeApp extends _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODU
 }
 
 function TypeApp$reflection() {
-    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Linguist.AST.TypeApp", [], TypeApp, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item1", TypeApp$reflection()], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(TypeApp$reflection())]], [["Item1", TypeApp$reflection()], ["field", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", TypeApp$reflection()]], [["Item", TypeApp$reflection()]]]);
+    return (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.union_type)("Lingua.AST.TypeApp", [], TypeApp, () => [[["name", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item1", TypeApp$reflection()], ["args", (0,_fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.array_type)(TypeApp$reflection())]], [["Item1", TypeApp$reflection()], ["field", _fable_fable_library_3_1_5_Reflection_js__WEBPACK_IMPORTED_MODULE_1__.string_type]], [["Item", TypeApp$reflection()]], [["Item", TypeApp$reflection()]]]);
 }
 
 function grammar(n, rs, t, ts) {
@@ -12575,6 +12575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "genVariant": () => (/* binding */ genVariant),
 /* harmony export */   "getVariantNames": () => (/* binding */ getVariantNames),
 /* harmony export */   "genVariantGetter": () => (/* binding */ genVariantGetter),
+/* harmony export */   "getVariantFullname": () => (/* binding */ getVariantFullname),
 /* harmony export */   "genInitAsserts": () => (/* binding */ genInitAsserts),
 /* harmony export */   "genInitAssert": () => (/* binding */ genInitAssert),
 /* harmony export */   "genAssert": () => (/* binding */ genAssert),
@@ -12704,7 +12705,7 @@ function generateType(t) {
         const variantGetters = (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((arg20$0040) => genVariantGetter(n_1, ps_1, arg20$0040), vs);
         const variants = (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((arg30$0040) => genVariant(n_1, ps_1, patTypes, arg30$0040), vs);
         const names = getVariantNames(vs);
-        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n      type $p_%P()%P() = {\r\n        %P()\r\n      }\r\n\r\n      export abstract class %P()%P() extends Node {\r\n        abstract tag: %P();\r\n        abstract match\u003c$T\u003e(p: $p_%P()%P()): $T;\r\n        %P()\r\n\r\n        static has_instance(x: any) {\r\n          return x instanceof %P();\r\n        }\r\n      }\r\n \r\n      const $%P() = function() {\r\n        %P()\r\n\r\n        return { %P() }\r\n      }();\r\n      ", [n_1, patTypes, genTypePatterns(n_1, patTypes, vs), n_1, genParams(ps_1), genVariantTags(vs), n_1, patTypes, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n", variantGetters), n_1, n_1, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n\n", variants), (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(",", names)]));
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n      type $p_%P()%P() = {\r\n        %P()\r\n      }\r\n\r\n      export abstract class %P()%P() extends Node {\r\n        abstract tag: %P();\r\n        abstract match\u003c$T\u003e(p: $p_%P()%P()): $T;\r\n        %P()\r\n\r\n        static has_instance(x: any) {\r\n          return x instanceof %P();\r\n        }\r\n      }\r\n \r\n      %P()\r\n      ", [n_1, patTypes, genTypePatterns(n_1, patTypes, vs), n_1, genParams(ps_1), genVariantTags(vs), n_1, patTypes, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n", variantGetters), n_1, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n\n", variants)]));
     }
     else {
         return genRecord(t.fields[0], t.fields[1], t.fields[2]);
@@ -12743,7 +12744,7 @@ function genTaggedThisProjections(fs) {
 function genVariant(p, ps, patTypes, _arg3) {
     const n = _arg3.fields[0];
     const fs = _arg3.fields[1];
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  class %P()%P() extends %P()%P() {\r\n    readonly tag!: \"%P()\";\r\n\r\n    constructor(%P()) {\r\n      super();\r\n      Object.defineProperty(this, \"tag\", { value: \"%P()\" });\r\n      %P()\r\n    }\r\n\r\n    match\u003c$T\u003e(p: $p_%P()%P()): $T {\r\n      return p.%P()(%P());\r\n    }\r\n\r\n    static has_instance(x: any) {\r\n      return x instanceof %P();\r\n    }\r\n  }\r\n  ", [n, genParams(ps), p, genParams(ps), n, genFieldInit(fs), n, genInitAsserts(ps, fs), p, patTypes, n, genThisProjections(fs), n]));
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  export class $$%P()$_%P()%P() extends %P()%P() {\r\n    readonly tag!: \"%P()\";\r\n\r\n    constructor(%P()) {\r\n      super();\r\n      Object.defineProperty(this, \"tag\", { value: \"%P()\" });\r\n      %P()\r\n    }\r\n\r\n    match\u003c$T\u003e(p: $p_%P()%P()): $T {\r\n      return p.%P()(%P());\r\n    }\r\n\r\n    static has_instance(x: any) {\r\n      return x instanceof %P();\r\n    }\r\n  }\r\n  ", [p, n, genParams(ps), p, genParams(ps), n, genFieldInit(fs), n, genInitAsserts(ps, fs), p, patTypes, n, genThisProjections(fs), getVariantFullname(p, n)]));
 }
 
 function getVariantNames(vs) {
@@ -12752,7 +12753,11 @@ function getVariantNames(vs) {
 
 function genVariantGetter(p, ps, _arg4) {
     const n = _arg4.fields[0];
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  static get %P()() {\r\n    return $%P().%P()\r\n  }\r\n  ", [n, p, n]));
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  static get %P()() {\r\n    return %P()\r\n  }\r\n  ", [n, getVariantFullname(p, n)]));
+}
+
+function getVariantFullname(p, n) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("$$%P()$_%P()", [p, n]));
 }
 
 function genInitAsserts(ps, fs) {

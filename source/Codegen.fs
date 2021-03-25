@@ -73,11 +73,7 @@ let rec generateType t =
         }}
       }}
  
-      const ${n} = function() {{
-        {String.concat "\n\n" variants}
-
-        return {{ {String.concat "," names} }}
-      }}();
+      {String.concat "\n\n" variants}
       """
 
 and genRecord n ps fs =
@@ -125,7 +121,7 @@ and genTaggedThisProjections fs =
 
 and genVariant p ps patTypes (Variant (n, fs)) =
   $"""
-  class {n}{genParams ps} extends {p}{genParams ps} {{
+  export class $${p}$_{n}{genParams ps} extends {p}{genParams ps} {{
     readonly tag!: "{n}";
 
     constructor({genFieldInit fs}) {{
@@ -139,7 +135,7 @@ and genVariant p ps patTypes (Variant (n, fs)) =
     }}
 
     static has_instance(x: any) {{
-      return x instanceof {n};
+      return x instanceof {getVariantFullname p n};
     }}
   }}
   """
@@ -150,9 +146,12 @@ and getVariantNames vs =
 and genVariantGetter p ps (Variant (n, fs)) =
   $"""
   static get {n}() {{
-    return ${p}.{n}
+    return {getVariantFullname p n}
   }}
   """
+
+and getVariantFullname p n =
+  $"$${p}$_{n}"
 
 and genInitAsserts ps fs =
   Seq.map (genInitAssert (Set.ofSeq ps)) fs |> String.concat "; "
