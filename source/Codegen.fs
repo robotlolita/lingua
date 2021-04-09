@@ -513,15 +513,15 @@ let generate (g:Grammar) =
     }} else {{
       const ast = toAst(result);
       {genAssert (Set.empty) "ast" g.Top}
-      return {{ ok: true, value: toAst(result) }};
+      return {{ ok: true, value: result }};
     }}
   }}
 
   export const semantics = grammar.createSemantics();
-  const toAstVisitor = ({generateAstVisitor g});
+  export const toAstVisitor = ({generateAstVisitor g});
   semantics.addOperation("toAST()", toAstVisitor);
 
-  function toAst(result: Ohm.MatchResult) {{
+  export function toAst(result: Ohm.MatchResult) {{
     return semantics(result).toAST();
   }}
   """
