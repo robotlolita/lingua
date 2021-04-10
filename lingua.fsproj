@@ -9,6 +9,8 @@
     <Compile Include="source/Ast.fs" />
     <Compile Include="source/generated/Lingua.fs" />
     <Compile Include="source/Parser.fs" />
+    <Compile Include="source/OhmCodegen.fs" />
+    <Compile Include="source/CrochetCodegen.fs" />
     <Compile Include="source/Codegen.fs" />
     <Compile Include="source/App.fs" />
   </ItemGroup>

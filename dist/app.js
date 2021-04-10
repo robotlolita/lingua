@@ -22,10 +22,13 @@ module.exports = require("path");;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "parse": () => (/* binding */ parse),
-/* harmony export */   "generate": () => (/* binding */ generate)
+/* harmony export */   "generate": () => (/* binding */ generate),
+/* harmony export */   "generateCrochet": () => (/* binding */ generateCrochet)
 /* harmony export */ });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var _Codegen_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
+/* harmony import */ var _CrochetCodegen_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31);
+
 
 
 
@@ -33,6 +36,10 @@ const parse = (source) => ((filename) => (0,_Parser_js__WEBPACK_IMPORTED_MODULE_
 
 function generate(g) {
     return (0,_Codegen_js__WEBPACK_IMPORTED_MODULE_1__.generate)(g);
+}
+
+function generateCrochet(g) {
+    return (0,_CrochetCodegen_js__WEBPACK_IMPORTED_MODULE_2__.generate)(g);
 }
 
 //# sourceMappingURL=App.js.map
@@ -12555,8 +12562,8 @@ function tryOp(op, arg) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "enumerate": () => (/* binding */ enumerate),
 /* harmony export */   "ident": () => (/* binding */ ident),
+/* harmony export */   "enumerate": () => (/* binding */ enumerate),
 /* harmony export */   "genParam": () => (/* binding */ genParam),
 /* harmony export */   "genParams": () => (/* binding */ genParams),
 /* harmony export */   "genTypeApp": () => (/* binding */ genTypeApp),
@@ -12581,15 +12588,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "genAssert": () => (/* binding */ genAssert),
 /* harmony export */   "genTypeAssert": () => (/* binding */ genTypeAssert),
 /* harmony export */   "generateTypes": () => (/* binding */ generateTypes),
-/* harmony export */   "genDesc": () => (/* binding */ genDesc),
-/* harmony export */   "genRuleParams": () => (/* binding */ genRuleParams),
-/* harmony export */   "genTerm": () => (/* binding */ genTerm),
-/* harmony export */   "genBinder": () => (/* binding */ genBinder),
-/* harmony export */   "genBody": () => (/* binding */ genBody),
-/* harmony export */   "genBodies": () => (/* binding */ genBodies),
-/* harmony export */   "generateRule": () => (/* binding */ generateRule),
-/* harmony export */   "generateRules": () => (/* binding */ generateRules),
-/* harmony export */   "generateGrammar": () => (/* binding */ generateGrammar),
 /* harmony export */   "topType": () => (/* binding */ topType),
 /* harmony export */   "builtinVisitors": () => (/* binding */ builtinVisitors),
 /* harmony export */   "isImmaterial": () => (/* binding */ isImmaterial),
@@ -12615,8 +12613,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fable_fable_library_3_1_5_Array_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
 /* harmony import */ var _fable_fable_library_3_1_5_Set_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
 /* harmony import */ var _fable_fable_library_3_1_5_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
-/* harmony import */ var _fable_fable_library_3_1_5_Option_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(19);
-/* harmony import */ var _fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(29);
+/* harmony import */ var _fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
+/* harmony import */ var _OhmCodegen_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(30);
 
 
 
@@ -12624,13 +12622,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function enumerate(xs) {
-    return (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.zip)((0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.rangeNumber)(1, 1, (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.length)(xs)), xs);
-}
 
 function ident(n) {
     return n;
+}
+
+function enumerate(xs) {
+    return (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.zip)((0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.rangeNumber)(1, 1, (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.length)(xs)), xs);
 }
 
 function genParam(p) {
@@ -12837,111 +12835,6 @@ function generateTypes(ts) {
     return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n\n", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t) => generateType(t), ts));
 }
 
-function genDesc(desc) {
-    if (desc == null) {
-        return "";
-    }
-    else {
-        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("(%P())", [(0,_fable_fable_library_3_1_5_Option_js__WEBPACK_IMPORTED_MODULE_5__.value)(desc)]));
-    }
-}
-
-function genRuleParams(ps) {
-    if (ps.length === 0) {
-        return "";
-    }
-    else {
-        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\u003c%P()\u003e", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(", ", ps)]));
-    }
-}
-
-function genTerm(t) {
-    switch (t.tag) {
-        case 1: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" | ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_2) => genTerm(t_2), t.fields[0]));
-        }
-        case 2: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()*", [genTerm(t.fields[0])]));
-        }
-        case 3: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()+", [genTerm(t.fields[0])]));
-        }
-        case 4: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()?", [genTerm(t.fields[0])]));
-        }
-        case 5: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("~%P()", [genTerm(t.fields[0])]));
-        }
-        case 6: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\u0026%P()", [genTerm(t.fields[0])]));
-        }
-        case 7: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("#%P()", [genTerm(t.fields[0])]));
-        }
-        case 8: {
-            const t_9 = t.fields[0];
-            const ps = t.fields[1];
-            if (ps.length === 0) {
-                return t_9;
-            }
-            else {
-                return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()\u003c%P()\u003e", [t_9, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_10) => genTerm(t_10), ps))]));
-            }
-        }
-        case 9: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()..%P()", [JSON.stringify(t.fields[0]), JSON.stringify(t.fields[1])]));
-        }
-        case 10: {
-            return JSON.stringify(t.fields[0]);
-        }
-        case 11: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("(%P())", [genTerm(t.fields[0])]));
-        }
-        default: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_1) => genTerm(t_1), t.fields[0]));
-        }
-    }
-}
-
-function genBinder(b) {
-    if (b.tag === 1) {
-        return genTerm(b.fields[0]);
-    }
-    else {
-        return genTerm(b.fields[1]);
-    }
-}
-
-function genBody(n, b) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()  -- alt%P()\n", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((b_1) => genBinder(b_1), b.Terms)), n]));
-}
-
-function genBodies(b) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" | ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((tupledArg) => genBody(tupledArg[0], tupledArg[1]), enumerate(b)));
-}
-
-function generateRule(rule) {
-    switch (rule.tag) {
-        case 1: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() := %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genBodies(rule.fields[3])]));
-        }
-        case 2: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() += %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genBodies(rule.fields[3])]));
-        }
-        default: {
-            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() %P() = %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genDesc(rule.fields[3]), genBodies(rule.fields[4])]));
-        }
-    }
-}
-
-function generateRules(rules) {
-    return (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((rule) => generateRule(rule), rules);
-}
-
-function generateGrammar(g) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  %P() {\r\n    %P()\r\n  }\r\n  ", [g.Name, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n\n", generateRules(g.Rules))]));
-}
-
 function topType(g) {
     return genTypeApp(g.Top);
 }
@@ -12977,7 +12870,7 @@ function genVisitorBinder(n, b) {
     }
     switch (pattern_matching_result) {
         case 0: {
-            return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_6__.empty)();
+            return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_5__.empty)();
         }
         case 1: {
             let pattern_matching_result_1;
@@ -12994,14 +12887,14 @@ function genVisitorBinder(n, b) {
             }
             switch (pattern_matching_result_1) {
                 case 0: {
-                    return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_6__.empty)();
+                    return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_5__.empty)();
                 }
                 case 1: {
                     if (b.tag === 1) {
-                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_6__.singleton)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("_%P(): Ohm.Node", [n])));
+                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_5__.singleton)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("_%P(): Ohm.Node", [n])));
                     }
                     else {
-                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_6__.singleton)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()$0: Ohm.Node", [b.fields[0]])));
+                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_5__.singleton)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()$0: Ohm.Node", [b.fields[0]])));
                     }
                 }
             }
@@ -13125,7 +13018,7 @@ function generateAstVisitor(g) {
 const prelude = "\r\nconst inspect = Symbol.for(\u0027nodejs.util.inspect.custom\u0027);\r\n\r\ntype Result\u003cA\u003e =\r\n  { ok: true, value: A }\r\n| { ok: false, error: string };\r\n\r\nexport abstract class Node {}\r\n\r\nexport class Meta {\r\n  constructor(readonly interval: Ohm.Interval) {}\r\n\r\n  static has_instance(x: any) {\r\n    return x instanceof Meta;\r\n  }\r\n\r\n  get position() {\r\n    const { lineNum, colNum } = OhmUtil.getLineAndColumn(\r\n      (this.interval as any).sourceString,\r\n      this.interval.startIdx\r\n    );\r\n    return {\r\n      line: lineNum,\r\n      column: colNum,\r\n    };\r\n  }\r\n\r\n  get range() {\r\n    return {\r\n      start: this.interval.startIdx,\r\n      end: this.interval.endIdx,\r\n    };\r\n  }\r\n\r\n  get source_slice() {\r\n    return this.interval.contents;\r\n  }\r\n\r\n  get formatted_position_message() {\r\n    return this.interval.getLineAndColumnMessage();\r\n  }\r\n\r\n  [inspect]() {\r\n    return this.position;\r\n  }\r\n}\r\n\r\nfunction $meta(x: Ohm.Node): Meta {\r\n  return new Meta(x.source);\r\n}\r\n\r\ntype Typed =\r\n  ((_: any) =\u003e boolean)\r\n| { has_instance(x: any): boolean };\r\n\r\nfunction $check_type(f: Typed) {\r\n  return (x: any) =\u003e {\r\n    if (typeof (f as any).has_instance === \"function\") {\r\n      return (f as any).has_instance(x);\r\n    } else {\r\n      return (f as any)(x);\r\n    }\r\n  }\r\n}\r\n\r\nfunction $is_type(t: string) {\r\n  return (x: any) =\u003e {\r\n    return typeof x === t;\r\n  };\r\n}\r\n\r\nfunction $is_array(f: Typed) {\r\n  return (x: any) =\u003e {\r\n    return Array.isArray(x) \u0026\u0026 x.every($check_type(f));\r\n  };\r\n}\r\n\r\nfunction $is_maybe(f: Typed) {\r\n  return (x: any) =\u003e {\r\n    return x === null || $check_type(f)(x);\r\n  };\r\n}\r\n\r\nfunction $is_null(x: any) {\r\n  return x === null;\r\n}\r\n\r\nfunction $assert_type\u003cT\u003e(x: any, t: string, f: Typed): asserts x is T {\r\n  if (!$check_type(f)(x)) {\r\n    throw new TypeError(`Expected ${t}, but got ${$inspect(x)}`);\r\n  }\r\n}\r\n  ";
 
 function generate(g) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  // This file is generated from Linguist\r\n  import * as Ohm from \"ohm-js\";\r\n  const OhmUtil = require(\"ohm-js/src/util\");\r\n  import { inspect as $inspect } from \"util\";\r\n\r\n  %P()\r\n\r\n  // == Type definitions ==============================================\r\n  %P()\r\n\r\n  // == Grammar definition ============================================\r\n  export const grammar = Ohm.grammar(%P())\r\n\r\n  // == Parsing =======================================================\r\n  export function parse(source: string, rule: string): Result\u003c%P()\u003e {\r\n    const result = grammar.match(source, rule);\r\n    if (result.failed()) {\r\n      return { ok: false, error: result.message as string };\r\n    } else {\r\n      const ast = toAst(result);\r\n      %P()\r\n      return { ok: true, value: result };\r\n    }\r\n  }\r\n\r\n  export const semantics = grammar.createSemantics();\r\n  export const toAstVisitor = (%P());\r\n  semantics.addOperation(\"toAST()\", toAstVisitor);\r\n\r\n  export function toAst(result: Ohm.MatchResult) {\r\n    return semantics(result).toAST();\r\n  }\r\n  ", [prelude, generateTypes(g.Types), JSON.stringify(generateGrammar(g)), topType(g), genAssert((0,_fable_fable_library_3_1_5_Set_js__WEBPACK_IMPORTED_MODULE_3__.empty)({
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  // This file is generated from Linguist\r\n  import * as Ohm from \"ohm-js\";\r\n  const OhmUtil = require(\"ohm-js/src/util\");\r\n  import { inspect as $inspect } from \"util\";\r\n\r\n  %P()\r\n\r\n  // == Type definitions ==============================================\r\n  %P()\r\n\r\n  // == Grammar definition ============================================\r\n  export const grammar = Ohm.grammar(%P())\r\n\r\n  // == Parsing =======================================================\r\n  export function parse(source: string, rule: string): Result\u003c%P()\u003e {\r\n    const result = grammar.match(source, rule);\r\n    if (result.failed()) {\r\n      return { ok: false, error: result.message as string };\r\n    } else {\r\n      const ast = toAst(result);\r\n      %P()\r\n      return { ok: true, value: ast };\r\n    }\r\n  }\r\n\r\n  export const semantics = grammar.createSemantics();\r\n  export const toAstVisitor = (%P());\r\n  semantics.addOperation(\"toAST()\", toAstVisitor);\r\n\r\n  export function toAst(result: Ohm.MatchResult) {\r\n    return semantics(result).toAST();\r\n  }\r\n  ", [prelude, generateTypes(g.Types), JSON.stringify((0,_OhmCodegen_js__WEBPACK_IMPORTED_MODULE_6__.generateGrammar)(g)), topType(g), genAssert((0,_fable_fable_library_3_1_5_Set_js__WEBPACK_IMPORTED_MODULE_3__.empty)({
         Compare: (x, y) => (0,_fable_fable_library_3_1_5_Util_js__WEBPACK_IMPORTED_MODULE_4__.comparePrimitives)(x, y),
     }), "ast", g.Top), generateAstVisitor(g)]));
 }
@@ -20572,13 +20465,435 @@ function transpose(lists) {
 
 /***/ }),
 /* 30 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "enumerate": () => (/* binding */ enumerate),
+/* harmony export */   "genDesc": () => (/* binding */ genDesc),
+/* harmony export */   "genRuleParams": () => (/* binding */ genRuleParams),
+/* harmony export */   "genTerm": () => (/* binding */ genTerm),
+/* harmony export */   "genBinder": () => (/* binding */ genBinder),
+/* harmony export */   "genBody": () => (/* binding */ genBody),
+/* harmony export */   "genBodies": () => (/* binding */ genBodies),
+/* harmony export */   "generateRule": () => (/* binding */ generateRule),
+/* harmony export */   "generateRules": () => (/* binding */ generateRules),
+/* harmony export */   "generateGrammar": () => (/* binding */ generateGrammar)
+/* harmony export */ });
+/* harmony import */ var _fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var _fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var _fable_fable_library_3_1_5_Option_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+
+
+
+
+function enumerate(xs) {
+    return (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.zip)((0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.rangeNumber)(1, 1, (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.length)(xs)), xs);
+}
+
+function genDesc(desc) {
+    if (desc == null) {
+        return "";
+    }
+    else {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("(%P())", [(0,_fable_fable_library_3_1_5_Option_js__WEBPACK_IMPORTED_MODULE_2__.value)(desc)]));
+    }
+}
+
+function genRuleParams(ps) {
+    if (ps.length === 0) {
+        return "";
+    }
+    else {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\u003c%P()\u003e", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(", ", ps)]));
+    }
+}
+
+function genTerm(t) {
+    switch (t.tag) {
+        case 1: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" | ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_2) => genTerm(t_2), t.fields[0]));
+        }
+        case 2: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()*", [genTerm(t.fields[0])]));
+        }
+        case 3: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()+", [genTerm(t.fields[0])]));
+        }
+        case 4: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()?", [genTerm(t.fields[0])]));
+        }
+        case 5: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("~%P()", [genTerm(t.fields[0])]));
+        }
+        case 6: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\u0026%P()", [genTerm(t.fields[0])]));
+        }
+        case 7: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("#%P()", [genTerm(t.fields[0])]));
+        }
+        case 8: {
+            const t_9 = t.fields[0];
+            const ps = t.fields[1];
+            if (ps.length === 0) {
+                return t_9;
+            }
+            else {
+                return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()\u003c%P()\u003e", [t_9, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_10) => genTerm(t_10), ps))]));
+            }
+        }
+        case 9: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()..%P()", [JSON.stringify(t.fields[0]), JSON.stringify(t.fields[1])]));
+        }
+        case 10: {
+            return JSON.stringify(t.fields[0]);
+        }
+        case 11: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("(%P())", [genTerm(t.fields[0])]));
+        }
+        default: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((t_1) => genTerm(t_1), t.fields[0]));
+        }
+    }
+}
+
+function genBinder(b) {
+    if (b.tag === 1) {
+        return genTerm(b.fields[0]);
+    }
+    else {
+        return genTerm(b.fields[1]);
+    }
+}
+
+function genBody(n, b) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()  -- alt%P()\n", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((b_1) => genBinder(b_1), b.Terms)), n]));
+}
+
+function genBodies(b) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)(" | ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((tupledArg) => genBody(tupledArg[0], tupledArg[1]), enumerate(b)));
+}
+
+function generateRule(rule) {
+    switch (rule.tag) {
+        case 1: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() := %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genBodies(rule.fields[3])]));
+        }
+        case 2: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() += %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genBodies(rule.fields[3])]));
+        }
+        default: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("%P()%P() %P() = %P()", [rule.fields[1], genRuleParams(rule.fields[2]), genDesc(rule.fields[3]), genBodies(rule.fields[4])]));
+        }
+    }
+}
+
+function generateRules(rules) {
+    return (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_0__.map)((rule) => generateRule(rule), rules);
+}
+
+function generateGrammar(g) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.interpolate)("\r\n  %P() {\r\n    %P()\r\n  }\r\n  ", [g.Name, (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.join)("\n\n", generateRules(g.Rules))]));
+}
+
+//# sourceMappingURL=OhmCodegen.js.map
+
+
+/***/ }),
+/* 31 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "id": () => (/* binding */ id),
+/* harmony export */   "down": () => (/* binding */ down),
+/* harmony export */   "up": () => (/* binding */ up),
+/* harmony export */   "typeName": () => (/* binding */ typeName),
+/* harmony export */   "varName": () => (/* binding */ varName),
+/* harmony export */   "genTypeApp": () => (/* binding */ genTypeApp),
+/* harmony export */   "genField": () => (/* binding */ genField),
+/* harmony export */   "genFields": () => (/* binding */ genFields),
+/* harmony export */   "generateType": () => (/* binding */ generateType),
+/* harmony export */   "genRecord": () => (/* binding */ genRecord),
+/* harmony export */   "genVariant": () => (/* binding */ genVariant),
+/* harmony export */   "generateTypes": () => (/* binding */ generateTypes),
+/* harmony export */   "isSingletonRule": () => (/* binding */ isSingletonRule),
+/* harmony export */   "isImmaterial": () => (/* binding */ isImmaterial),
+/* harmony export */   "genVisitorBinder": () => (/* binding */ genVisitorBinder),
+/* harmony export */   "genVisitorParams": () => (/* binding */ genVisitorParams),
+/* harmony export */   "genTypeName": () => (/* binding */ genTypeName),
+/* harmony export */   "genExpr": () => (/* binding */ genExpr),
+/* harmony export */   "genVisitorEffect": () => (/* binding */ genVisitorEffect),
+/* harmony export */   "genAltVisitor": () => (/* binding */ genAltVisitor),
+/* harmony export */   "genRuleVisitor": () => (/* binding */ genRuleVisitor),
+/* harmony export */   "genVisitor": () => (/* binding */ genVisitor),
+/* harmony export */   "generateVisitors": () => (/* binding */ generateVisitors),
+/* harmony export */   "generate": () => (/* binding */ generate)
+/* harmony export */ });
+/* harmony import */ var _fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
+/* harmony import */ var _fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
+/* harmony import */ var _OhmCodegen_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
+/* harmony import */ var _fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+
+
+
+
+
+
+function id(n) {
+    return n;
+}
+
+function down(n) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.substring)(n, 0, 1).toLocaleLowerCase() + (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.substring)(n, 1);
+}
+
+function up(n) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.substring)(n, 0, 1).toLocaleUpperCase() + (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.substring)(n, 1);
+}
+
+function typeName(n) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(down(n), "_", "-");
+}
+
+function varName(n) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(up(n), "_", "-");
+}
+
+function genTypeApp(t_mut) {
+    genTypeApp:
+    while (true) {
+        const t = t_mut;
+        switch (t.tag) {
+            case 1: {
+                t_mut = t.fields[0];
+                continue genTypeApp;
+            }
+            case 2: {
+                return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("%P()--%P()", [genTypeApp(t.fields[0]), typeName(t.fields[1])]));
+            }
+            case 3: {
+                return "tuple";
+            }
+            case 4: {
+                return "any";
+            }
+            default: {
+                return typeName(t.fields[0]);
+            }
+        }
+        break;
+    }
+}
+
+function genField(_arg1) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("%P() is %P()", [typeName(_arg1.fields[0]), genTypeApp(_arg1.fields[1])]));
+}
+
+function genFields(fs) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((arg00$0040) => genField(arg00$0040), fs));
+}
+
+function generateType(t) {
+    if (t.tag === 1) {
+        const n_1 = t.fields[0];
+        const variants = (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((arg10$0040) => genVariant(n_1, arg10$0040), t.fields[2]);
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("abstract %P() is node;%P()%P()", [typeName(n_1), "\n", (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)("\n", variants)]));
+    }
+    else {
+        return genRecord(t.fields[0], t.fields[2]);
+    }
+}
+
+function genRecord(n, fs) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P() is node(%P());", [typeName(n), genFields(fs)]));
+}
+
+function genVariant(p, _arg1) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P()--%P() is %P()(%P());", [typeName(p), typeName(_arg1.fields[0]), typeName(p), genFields(_arg1.fields[1])]));
+}
+
+function generateTypes(ts) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)("\n\n", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((t) => generateType(t), ts));
+}
+
+function isSingletonRule(b) {
+    if (b.Terms.length === 1) {
+        return b.Expr == null;
+    }
+    else {
+        return false;
+    }
+}
+
+function isImmaterial(t) {
+    switch (t.tag) {
+        case 5: {
+            return true;
+        }
+        case 6: {
+            return true;
+        }
+        default: {
+            return false;
+        }
+    }
+}
+
+function genVisitorBinder(n, b) {
+    let pattern_matching_result;
+    if (b.tag === 0) {
+        if (isImmaterial(b.fields[1])) {
+            pattern_matching_result = 0;
+        }
+        else {
+            pattern_matching_result = 1;
+        }
+    }
+    else {
+        pattern_matching_result = 1;
+    }
+    switch (pattern_matching_result) {
+        case 0: {
+            return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_2__.empty)();
+        }
+        case 1: {
+            let pattern_matching_result_1;
+            if (b.tag === 1) {
+                if (isImmaterial(b.fields[0])) {
+                    pattern_matching_result_1 = 0;
+                }
+                else {
+                    pattern_matching_result_1 = 1;
+                }
+            }
+            else {
+                pattern_matching_result_1 = 1;
+            }
+            switch (pattern_matching_result_1) {
+                case 0: {
+                    return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_2__.empty)();
+                }
+                case 1: {
+                    if (b.tag === 1) {
+                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_2__.singleton)("_");
+                    }
+                    else {
+                        return (0,_fable_fable_library_3_1_5_List_js__WEBPACK_IMPORTED_MODULE_2__.singleton)(varName(b.fields[0]));
+                    }
+                }
+            }
+        }
+    }
+}
+
+function genVisitorParams(binders) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.collect)((tupledArg) => genVisitorBinder(tupledArg[0], tupledArg[1]), (0,_OhmCodegen_js__WEBPACK_IMPORTED_MODULE_3__.enumerate)(binders)));
+}
+
+function genTypeName(e) {
+    switch (e.tag) {
+        case 3: {
+            return id(e.fields[0]);
+        }
+        case 2: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("%P()--%P()", [genTypeName(e.fields[0]), typeName(e.fields[1])]));
+        }
+        default: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toFail)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.printf)("Not a valid type constructor"));
+        }
+    }
+}
+
+function genExpr(e) {
+    switch (e.tag) {
+        case 1: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("(new %P()(%P())) ", [genTypeName(e.fields[0]), (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((e_1) => genExpr(e_1), e.fields[1]))]));
+        }
+        case 2: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("((%P()).%P())", [genExpr(e.fields[0]), typeName(e.fields[1])]));
+        }
+        case 3: {
+            return varName(e.fields[0]);
+        }
+        case 4: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("[%P()]", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((e_2) => genExpr(e_2), e.fields[0]))]));
+        }
+        case 5: {
+            return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("([%P()] ++ %P())", [(0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)(", ", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((e_3) => genExpr(e_3), e.fields[0])), genExpr(e.fields[1])]));
+        }
+        case 6: {
+            return "nothing";
+        }
+        default: {
+            return "(#lingua interval: Node)";
+        }
+    }
+}
+
+function genVisitorEffect(n, expr) {
+    if (expr != null) {
+        return genExpr(expr);
+    }
+    else {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("assert not \"Undefined rule %P()\";", [n]));
+    }
+}
+
+function genAltVisitor(tk, n, i, b) {
+    const name = JSON.stringify(((n + "_alt") + (0,_fable_fable_library_3_1_5_Types_js__WEBPACK_IMPORTED_MODULE_4__.toString)(i)));
+    if (tk) {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("  %P() -\u003e #lingua visitor-source,", [name]));
+    }
+    else if (isSingletonRule(b)) {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("  %P() -\u003e #lingua visitor-singleton,", [name]));
+    }
+    else {
+        return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("  %P() -\u003e #lingua visitor-lambda: { Node, %P() in %P() },", [name, genVisitorParams(b.Terms), genVisitorEffect(n, b.Expr)]));
+    }
+}
+
+function genRuleVisitor(tk, n, b) {
+    return ((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("  %P() -\u003e #lingua visitor-identity,", [JSON.stringify(n)])) + "\n") + (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)("\n", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((tupledArg) => genAltVisitor(tk, n, tupledArg[0], tupledArg[1]), (0,_OhmCodegen_js__WEBPACK_IMPORTED_MODULE_3__.enumerate)(b)));
+}
+
+function genVisitor(rule) {
+    switch (rule.tag) {
+        case 1: {
+            return genRuleVisitor(rule.fields[0], rule.fields[1], rule.fields[3]);
+        }
+        case 2: {
+            return genRuleVisitor(rule.fields[0], rule.fields[1], rule.fields[3]);
+        }
+        default: {
+            return genRuleVisitor(rule.fields[0], rule.fields[1], rule.fields[4]);
+        }
+    }
+}
+
+function generateVisitors(g) {
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.join)("\n", (0,_fable_fable_library_3_1_5_Seq_js__WEBPACK_IMPORTED_MODULE_1__.map)((rule) => genVisitor(rule), g.Rules));
+}
+
+function generate(g) {
+    return "% crochet" + (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("\r\n// This file is generated from Lingua\r\n\r\nopen crochet.text.parsing.lingua;\r\n\r\n// Type definitions\r\nabstract node;\r\n%P()\r\n\r\n// Grammar definition\r\ndefine grammar = lazy (#lingua grammar: %P());\r\n\r\ndefine to-ast = lazy ((force grammar) semantics: [\r\n%P()\r\n]);\r\n  ", [generateTypes(g.Types), JSON.stringify((0,_OhmCodegen_js__WEBPACK_IMPORTED_MODULE_3__.generateGrammar)(g)), generateVisitors(g)]));
+}
+
+//# sourceMappingURL=CrochetCodegen.js.map
+
+
+/***/ }),
+/* 32 */
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("yargs");;
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ ((module) => {
 
 "use strict";
@@ -20661,24 +20976,37 @@ __webpack_require__.r(__webpack_exports__);
 const fs = __webpack_require__(1);
 const path = __webpack_require__(2);
 
-const yargs = __webpack_require__(30);
-const prettier = __webpack_require__(31);
+const yargs = __webpack_require__(32);
+const prettier = __webpack_require__(33);
 
 const argv = yargs.argv;
 
-const [file] = argv._;
+const [file, target0] = argv._;
+const target = target0 ?? "typescript";
 
 if (file == null) {
-  console.error(`Usage: lingua <file.lingua>`);
+  console.error(`Usage: lingua <file.lingua> [typescript | crochet]`);
   process.exit(1);
 }
 
 const source = fs.readFileSync(file, "utf8");
 const ast = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.parse(source)(file);
-const out = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.generate(ast);
-const pretty = prettier.format(out, { parser: "typescript" });
 
-console.log(pretty);
+switch (target) {
+  case "typescript": {
+    const out = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.generate(ast);
+    const pretty = prettier.format(out, { parser: "typescript" });
+    console.log(pretty);
+    break;
+  }
+  case "crochet": {
+    const out = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.generateCrochet(ast);
+    console.log(out);
+    break;
+  }
+  default:
+    throw new Error(`Unknown target ${target}`);
+}
 })();
 
 var __webpack_export_target__ = exports;
