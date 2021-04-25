@@ -20656,11 +20656,11 @@ function up(n) {
 }
 
 function typeName(n) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(down(n), "_", "-");
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(down(n), "_", "-").toLocaleLowerCase();
 }
 
 function varName(n) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(up(n), "_", "-");
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.replace)(up(n.toLocaleLowerCase()), "_", "-");
 }
 
 function genTypeApp(t_mut) {
@@ -20797,7 +20797,7 @@ function genVisitorParams(binders) {
 function genTypeName(e) {
     switch (e.tag) {
         case 3: {
-            return id(e.fields[0]);
+            return typeName(e.fields[0]);
         }
         case 2: {
             return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("%P()--%P()", [genTypeName(e.fields[0]), typeName(e.fields[1])]));

@@ -8,8 +8,8 @@ let id n = n
 let down (n:string) = (n.Substring(0, 1).ToLower()) + (n.Substring(1))
 let up (n:string) = (n.Substring(0, 1).ToUpper()) + (n.Substring(1))
 
-let typeName (n:string) = (down n).Replace("_", "-")
-let varName (n:string) = (up n).Replace("_", "-")
+let typeName (n:string) = (down n).Replace("_", "-").ToLower()
+let varName (n:string) = (up (n.ToLower())).Replace("_", "-")
 
 
 let rec genTypeApp t =
@@ -67,7 +67,7 @@ let genVisitorParams binders =
 
 let rec genTypeName e =
   match e with
-  | AVar n -> id n
+  | AVar n -> typeName n
   | AProject (o, f) -> $"{genTypeName o}--{typeName f}"
   | _ -> failwithf "Not a valid type constructor"
 
