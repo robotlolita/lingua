@@ -1,6 +1,6 @@
 {
   "name": "@origamitower/lingua",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "bin": {
     "lingua": "lingua-app.js"
   },
@@ -9,9 +9,7 @@
     "build-grammar": "fohm compile grammar/grammar.ohm --name Lingua --outDir source/generated"
   },
   "dependencies": {
-    "ohm-js": "^0.14.0",
-    "prettier": "^2.2.1",
-    "yargs": "^12.0.5"
+    "ohm-js": "^0.14.0"
   },
   "devDependencies": {
     "@origamitower/fohm": "^1.1.0",

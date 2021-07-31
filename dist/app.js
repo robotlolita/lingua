@@ -20709,11 +20709,11 @@ function generateType(t) {
 }
 
 function genRecord(n, fs) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P() is node(%P());", [typeName(n), genFields(fs)]));
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P()(%P()) is node;", [typeName(n), genFields(fs)]));
 }
 
 function genVariant(p, _arg1) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P()--%P() is %P()(%P());", [typeName(p), typeName(_arg1.fields[0]), typeName(p), genFields(_arg1.fields[1])]));
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.toText)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_0__.interpolate)("type %P()--%P()(%P()) is %P();", [typeName(p), typeName(_arg1.fields[0]), genFields(_arg1.fields[1]), typeName(p)]));
 }
 
 function generateTypes(ts) {
@@ -20885,20 +20885,6 @@ function generate(g) {
 //# sourceMappingURL=CrochetCodegen.js.map
 
 
-/***/ }),
-/* 32 */
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("yargs");;
-
-/***/ }),
-/* 33 */
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("prettier");;
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -20976,12 +20962,8 @@ __webpack_require__.r(__webpack_exports__);
 const fs = __webpack_require__(1);
 const path = __webpack_require__(2);
 
-const yargs = __webpack_require__(32);
-const prettier = __webpack_require__(33);
 
-const argv = yargs.argv;
-
-const [file, target0] = argv._;
+const [file, target0] = process.argv.slice(2);
 const target = target0 ?? "typescript";
 
 if (file == null) {
@@ -20995,8 +20977,7 @@ const ast = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.parse(source)(file);
 switch (target) {
   case "typescript": {
     const out = _build_source_App__WEBPACK_IMPORTED_MODULE_0__.generate(ast);
-    const pretty = prettier.format(out, { parser: "typescript" });
-    console.log(pretty);
+    console.log(out);
     break;
   }
   case "crochet": {

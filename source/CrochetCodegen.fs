@@ -36,10 +36,10 @@ let rec generateType t =
       $"""abstract {typeName n} is node;{"\n"}{String.concat "\n" variants}"""
 
 and genRecord n fs =
-  $"""type {typeName n} is node({genFields fs});"""
+  $"""type {typeName n}({genFields fs}) is node;"""
 
 and genVariant p (Variant (n, fs)) =
-  $"type {typeName p}--{typeName n} is {typeName p}({genFields fs});"
+  $"type {typeName p}--{typeName n}({genFields fs}) is {typeName p};"
 
 let generateTypes ts =
   ts |> Seq.map generateType

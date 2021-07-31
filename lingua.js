@@ -1,12 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 import * as lingua from "./build/source/App";
-const yargs = require("yargs");
-const prettier = require("prettier");
 
-const argv = yargs.argv;
-
-const [file, target0] = argv._;
+const [file, target0] = process.argv.slice(2);
 const target = target0 ?? "typescript";
 
 if (file == null) {
@@ -20,8 +16,7 @@ const ast = lingua.parse(source)(file);
 switch (target) {
   case "typescript": {
     const out = lingua.generate(ast);
-    const pretty = prettier.format(out, { parser: "typescript" });
-    console.log(pretty);
+    console.log(out);
     break;
   }
   case "crochet": {
