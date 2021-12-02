@@ -17,7 +17,7 @@ let rec genTypeApp t =
   | TAName n -> typeName n
   | TAApply (n, _) -> genTypeApp n
   | TAProject (t, f) -> $"{genTypeApp t}--{typeName f}"
-  | TAList t -> "tuple"
+  | TAList t -> "list"
   | TAMaybe t -> "any"
 
 let genField (Field (f, t)) =
@@ -117,6 +117,14 @@ let generateVisitors (g:Grammar) =
   Seq.map genVisitor g.Rules
   |> String.concat "\n"
 
+let topRule (g:Grammar) =
+  let name = match Array.head g.Rules with
+             | RDefine (_, n, _, _, _) -> n
+             | ROverride (_, n, _, _) -> n
+             | RExtend (_, n, _, _) -> n
+  $"\"{name}\""
+  
+
 let generate (g:Grammar) =
   "% crochet" + $"""
 // This file is generated from Lingua
@@ -127,10 +135,23 @@ open crochet.text.parsing.lingua;
 abstract node;
 {generateTypes g.Types}
 
-// Grammar definition
-define grammar = lazy (#lingua grammar: {toString (generateGrammar g)});
+singleton {typeName g.Name};
 
-define to-ast = lazy ((force grammar) semantics: [
-{generateVisitors g}
-]);
+// Grammar definition
+local define grammar =
+  lazy (#lingua grammar: {toString (generateGrammar g)});
+
+local define to-ast =
+  lazy ((force grammar) semantics: [
+    {generateVisitors g}
+  ]);
+
+command {typeName g.Name} grammar = force grammar;
+
+command {typeName g.Name} to-ast = force to-ast;
+
+command {typeName g.Name} parse: (Input is text) -> result<{genTypeApp g.Top}, string> do
+  let Tree = self grammar parse: Input rule: {topRule g};
+  Tree map: {{ X in self to-ast transform: X }};
+end
   """
