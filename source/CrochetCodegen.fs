@@ -33,13 +33,19 @@ let rec generateType t =
   | TRecord(n, _, fs) -> genRecord n fs
   | TUnion(n, _, vs) ->
       let variants = Seq.map (genVariant n) vs
-      $"""abstract {typeName n} is node;{"\n"}{String.concat "\n" variants}"""
+      $"""abstract {typeName n} is ast-node;{"\n"}{String.concat "\n" variants}"""
 
 and genRecord n fs =
-  $"""type {typeName n}({genFields fs}) is node;"""
+  if (Array.length fs) = 0 then
+    $"""singleton {typeName n} is ast-node;"""
+  else
+    $"""type {typeName n}({genFields fs}) is ast-node;"""
 
 and genVariant p (Variant (n, fs)) =
-  $"type {typeName p}--{typeName n}({genFields fs}) is {typeName p};"
+  if (Array.length fs) = 0 then
+    $"singleton {typeName p}--{typeName n} is {typeName p};"
+  else
+    $"type {typeName p}--{typeName n}({genFields fs}) is {typeName p};"
 
 let generateTypes ts =
   ts |> Seq.map generateType
@@ -75,7 +81,10 @@ let rec genExpr e =
   match e with
   | AMeta -> "(#lingua interval: Node)"
   | AMake (c, args) -> 
-      $"""(new {genTypeName c}({Seq.map genExpr args |> String.concat ", "})) """
+      if (Array.length args) = 0 then
+        $"""{genTypeName c}"""
+      else
+        $"""(new {genTypeName c}({Seq.map genExpr args |> String.concat ", "})) """
   | AProject (o, f) ->  $"(({genExpr o}).{typeName f})"
   | AVar n -> varName n
   | AList xs ->
@@ -132,7 +141,7 @@ let generate (g:Grammar) =
 open crochet.text.parsing.lingua;
 
 // Type definitions
-abstract node;
+local abstract ast-node is node;
 {generateTypes g.Types}
 
 singleton {typeName g.Name};
