@@ -7,7 +7,10 @@ let enumerate xs =
   Seq.zip {1..(Seq.length xs)} xs
 
 [<Emit("JSON.stringify($0)")>]
-let toString (s:string) = jsNative
+let toStringPrim (s:string) : string = jsNative
+
+let toString (s:string) =
+  (toStringPrim s).Replace("[", "\\[")
 
 // == Grammar language
 let genDesc desc =
