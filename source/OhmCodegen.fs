@@ -10,7 +10,7 @@ let enumerate xs =
 let toStringPrim (s:string) : string = jsNative
 
 let toString (s:string) =
-  (toStringPrim s).Replace("[", "\\[")
+  (toStringPrim s).Replace("[", "\\[").Replace("]", "\\]")
 
 // == Grammar language
 let genDesc desc =
