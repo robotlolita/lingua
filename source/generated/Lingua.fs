@@ -57,7 +57,7 @@ let private visitor =
     "TypeApp_alt0" ==> fun (meta:Meta) t _1 ->
        TAList t 
               
-    "TypeApp_alt1" ==> fun (meta:Meta) t _1 ->
+    "TypeApp1_alt0" ==> fun (meta:Meta) t _1 ->
        TAMaybe t 
               
     "TypeApp2_alt0" ==> fun (meta:Meta) t _1 ps _3 ->
@@ -188,7 +188,7 @@ let private visitor =
 let private primParser: obj  =
   makeParser(
     """
-    Linguist {
+    Lingua {
       TypeDecl =
         | type_ Name Formals "(" ListOf<TypeField, ","> ")" -- alt0
         | type_ Name Formals "=" "|"? NonemptyListOf<TypeVariant, "|"> -- alt1
@@ -203,9 +203,13 @@ let private primParser: obj  =
               
       
       TypeApp =
-        | TypeApp2 "[]" -- alt0
-        | TypeApp2 "?" -- alt1
-        | TypeApp2 -- alt2
+        | TypeApp "[]" -- alt0
+        | TypeApp1 -- alt1
+              
+      
+      TypeApp1 =
+        | TypeApp2 "?" -- alt0
+        | TypeApp2 -- alt1
               
       
       TypeApp2 =

@@ -26,7 +26,10 @@ Lingua : Grammar {
       %[ Field(n, t) ]%
 
   TypeApp =
-    | t:TypeApp2 "[]"     %[ TAList t ]%
+    | t:TypeApp "[]"     %[ TAList t ]%
+    | TypeApp1
+
+  TypeApp1 =
     | t:TypeApp2 "?"      %[ TAMaybe t ]%
     | TypeApp2
 
