@@ -17136,7 +17136,7 @@ function enumerate(xs) {
 }
 
 function toString(s) {
-    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.replace)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.replace)(JSON.stringify(s), "[", "\\["), "]", "\\]");
+    return (0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.replace)((0,_fable_fable_library_3_1_5_String_js__WEBPACK_IMPORTED_MODULE_1__.replace)(JSON.stringify(s), "[", "\\x5b"), "]", "\\x5d");
 }
 
 function genDesc(desc) {
