@@ -268,6 +268,9 @@ let rec genExpr e =
       $"""[{Seq.map genExpr xs |> String.concat ", "}]"""
   | ACons (hd, tl) ->
       $"""[{Seq.map genExpr hd |> String.concat ", "}, ...{genExpr tl}]"""
+  | AApply (name, args) ->
+      let args = Seq.map genExpr args |> String.concat ","
+      $"""$primitive.{name}({args})"""
   | ANull ->
       "null"
   
@@ -376,6 +379,28 @@ export class Meta {
     return this.position;
   }
 }
+
+const $primitive = {
+  parse_json(x: string) {
+    return JSON.parse(x);
+  },
+  parse_integer(x: string) {
+    return BigInt(x.replace(/_/g, ""));
+  },
+  parse_float(x: string) {
+    return Number(x.replace(/_/g, ""));
+  },
+  parse_boolean(x: string) {
+    switch (x) {
+      case "true": return true;
+      case "false": return false;
+      default: throw new Error(`Not a boolean ${x}`);
+    }
+  },
+  flatten_list<A>(xs: A[]) {
+    return xs.flat();
+  }
+};
 
 function $meta(x: Ohm.Node): Meta {
   return new Meta(x.source);

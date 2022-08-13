@@ -91,6 +91,9 @@ let rec genExpr e =
       $"""[{Seq.map genExpr xs |> String.concat ", "}]"""
   | ACons (hd, tl) ->
       $"""([{Seq.map genExpr hd |> String.concat ", "}] ++ {genExpr tl})"""
+  | AApply (n, args) ->
+      let args = Seq.map genExpr args |> String.concat ", "
+      $"""(#lingua primitive: "{typeName n}")({args})"""
   | ANull ->
       "nothing"
 

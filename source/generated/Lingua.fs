@@ -105,6 +105,9 @@ let private visitor =
     "Action_alt0" ==> fun (meta:Meta) e _1 xs _3 ->
        AMake(e, xs) 
               
+    "Action_alt1" ==> fun (meta:Meta) _0 n _2 xs _4 ->
+       AApply(n, xs) 
+              
     "ActionProject_alt0" ==> fun (meta:Meta) a _1 n ->
        AProject(a, n) 
               
@@ -254,7 +257,8 @@ let private primParser: obj  =
       
       Action =
         | ActionProject "(" ListOf<Action, ","> ")" -- alt0
-        | ActionProject -- alt1
+        | "@" Name "(" ListOf<Action, ","> ")" -- alt1
+        | ActionProject -- alt2
               
       
       ActionProject =

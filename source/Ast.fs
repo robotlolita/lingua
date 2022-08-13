@@ -42,6 +42,7 @@ and Expr =
   | AVar of name:string
   | AList of Expr[]
   | ACons of Expr[] * Expr
+  | AApply of name:string * args:Expr[]
   | ANull
 
 and Type =

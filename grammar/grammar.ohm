@@ -81,6 +81,8 @@ Lingua : Grammar {
   Action =
     | e:ActionProject "(" xs:ListOf<Action, ","> ")"
       %[ AMake(e, xs) ]%
+    | "@" n:Name "(" xs:ListOf<Action, ","> ")"
+      %[ AApply(n, xs) ]%
     | ActionProject
 
   ActionProject =
